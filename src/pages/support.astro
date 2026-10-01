@@ -1,0 +1,18 @@
+---
+import Page from '../layouts/Page.astro';
+import site from '../../site.config.json';
+---
+<Page title="Suporte" description="Ajuda e contato para problemas com Blackout.io no iPhone e iPad.">
+  <article class="prose">
+    <p class="eyebrow">Ajuda com o jogo</p><h1>Suporte</h1>
+    <p class="lead">Encontrou um problema? Conte o que aconteceu e como repetir.</p>
+    <section><h2>Fale com a gente</h2>
+      <p><a class="contact" href={`mailto:${site.email}`}>{site.email}</a></p>
+      <p>Inclua o modelo do iPhone ou iPad, a versão do iOS ou iPadOS, a versão do jogo e os passos até o problema.</p>
+      <p>Se ajudar, envie uma captura de tela sem informações pessoais. Não envie senhas, documentos ou logs completos.</p>
+    </section>
+    <section><h2>O jogo precisa de internet?</h2><p>Não. As partidas são locais, contra sete bots. Não é preciso criar conta.</p></section>
+    <section><h2>Onde ajusto áudio e controle?</h2><p>Abra as configurações pela engrenagem. Ali ficam música, efeitos sonoros, vibração e controle.</p></section>
+    <section><h2>Como meus dados são tratados?</h2><p>A <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/privacy/`}>política de privacidade</a> explica o armazenamento do app e o contato com o suporte.</p></section>
+  </article>
+</Page>
