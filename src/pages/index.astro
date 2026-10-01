@@ -1,0 +1,21 @@
+---
+import Page from '../layouts/Page.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<Page title="Uma arena, sete rivais" description="Blackout.io é um jogo de buracos negros para iPhone e iPad. Partidas locais contra sete bots.">
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Partidas locais. iPhone e iPad.</p>
+      <h1>Uma arena.<br />Sete rivais.<br /><span>Seu buraco negro.</span></h1>
+      <p class="lead">Consuma objetos, cresça e sobreviva em Neon Harbor. Dispute a arena contra sete bots.</p>
+      <a class="button" href={`${base}/support/`}>Precisa de ajuda? <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="orbit" aria-hidden="true"><div class="hole"></div><span class="object one"></span><span class="object two"></span><span class="object three"></span></div>
+  </section>
+  <section class="facts" aria-label="Sobre o jogo">
+    <div><h2>Jogue offline</h2><p>A partida acontece no aparelho. Sem conta para começar.</p></div>
+    <div><h2>Uma arena</h2><p>Neon Harbor. Objetos para consumir e rivais para enfrentar.</p></div>
+    <div><h2>Do seu jeito</h2><p>Ajuste música, efeitos, vibração e controle nas configurações.</p></div>
+  </section>
+  <section class="resource"><h2>Sobre seus dados</h2><p>Veja o que o app guarda no aparelho e como o suporte funciona.</p><a href={`${base}/privacy/`}>Ler a política de privacidade <span aria-hidden="true">↗</span></a></section>
+</Page>

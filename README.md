@@ -46,7 +46,7 @@ Depois do deploy, conferir HTTPS e acesso sem login nas três URLs, links, conta
 
 ## Atualizar e reverter
 
-Alterar o conteúdo por PR, rodar as verificações locais, mergear e executar o workflow manual. Alterar a data em `site.config.json` e a data exibida na política quando o texto mudar.
+Alterar o conteúdo por PR, rodar as verificações locais, mergear e executar o workflow manual. Alterar a data em `site.config.json` quando o texto mudar.
 
 Para reverter, criar um PR com `git revert <commit>`, validar, mergear e publicar novamente. Não reescrever o histórico. Reverter conteúdo não substitui revisar se a política ainda corresponde ao app distribuído.
 
