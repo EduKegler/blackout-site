@@ -24,7 +24,7 @@ npm run preview
 
 ## Conteúdo e política
 
-`src/pages/privacy.astro` é a fonte canônica da política pública. App e pacote de distribuição devem usar a URL dessa página e revisar suas declarações quando o app mudar. O texto inicial descreve a versão sem telemetria enviada ao desenvolvedor. Não vale para uma versão instrumentada.
+`src/pages/privacy.astro` é a fonte canônica da política pública. App e pacote de distribuição devem usar a URL dessa página e revisar suas declarações quando o app mudar. A política cobre armazenamento local e coleta de teste via PostHog Cloud US, com ID persistente por instalação e opt-out. Não autoriza coleta de produção nem promete anonimização ou exclusão física em prazo não confirmado.
 
 Antes da publicação, Eduardo revisa nome, contato, texto e operação do suporte, inclusive fundamento e descarte de mensagens. Antes de ativar telemetria, a política precisa refletir a versão implementada, dados enviados, fornecedor/região, finalidade/fundamento, público, retenção, opção ligada por padrão, opt-out e exclusão realmente disponível. A preferência ligada não representa consentimento.
 
