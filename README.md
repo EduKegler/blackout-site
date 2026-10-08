@@ -11,7 +11,7 @@ npm ci
 npm run dev
 ```
 
-Abra `http://localhost:4321/blackout-site/`.
+Abra `http://localhost:4321/`.
 
 ```sh
 npm run check
@@ -32,15 +32,17 @@ Configuração operacional remota não faz parte deste site. Foi retirada da int
 
 ## Publicação
 
-Destino: repositório público `EduKegler/blackout-site`:
+Destino: repositório público `EduKegler/blackout-site`, no domínio próprio `blackout.kegler.dev`:
 
-* `https://edukegler.github.io/blackout-site/`
-* `https://edukegler.github.io/blackout-site/support/`
-* `https://edukegler.github.io/blackout-site/privacy/`
+* `https://blackout.kegler.dev/`
+* `https://blackout.kegler.dev/support/`
+* `https://blackout.kegler.dev/privacy/`
 
 Eduardo aprovou a política e a publicação em 01/10/2026. O workflow `.github/workflows/pages.yml` roda somente por pedido manual, depois do merge na main. Settings → Pages → Source usa GitHub Actions. Ele só constrói e publica o site; não liga CI ou review do jogo.
 
-Os aceites estão registrados em `site.config.json`. Sem domínio próprio ou compra de serviço.
+Os aceites, o domínio e o contato estão registrados em `site.config.json`. O site fica na raiz do domínio, sem prefixo de repositório.
+
+O domínio vem de Settings → Pages → Custom domain, não de arquivo `CNAME`: com publicação por GitHub Actions o arquivo é ignorado. O DNS do `kegler.dev` fica na Vercel, com `CNAME blackout -> edukegler.github.io`. Com o domínio configurado, o endereço antigo em `edukegler.github.io/blackout-site/` redireciona para ele.
 
 Depois do deploy, conferir HTTPS e acesso sem login nas três URLs, links, contato e conteúdo. Registrar os endereços na BLACK-144 e entregar à distribuição e integração do app. Em App Store Connect, suporte fica em Support URL e política em Privacy Policy URL. A inclusão no app e no pacote de distribuição pertence às tasks desses componentes.
 
@@ -56,7 +58,7 @@ Todas as páginas, inclusive a 404, recebem `noindex`, `nofollow`, `nosnippet`, 
 
 Essas regras pedem exclusão aos robôs que as respeitam. O site e seu código são públicos; não há garantia de acesso apenas por link, bloqueio de robôs hostis ou proteção por senha. GitHub Pages não oferece configuração de headers HTTP personalizados para acrescentar `X-Robots-Tag` neste projeto.
 
-Não bloquear buscadores com `Disallow`: eles precisam ler o HTML para reconhecer `noindex`, ou o endereço ainda pode aparecer em resultados. `robots.txt` vale na raiz do host; um arquivo em `/blackout-site/robots.txt` não controlaria esse site de projeto. Não criar outro repo ou alterar outros sites para fingir essa proteção. [Google: noindex](https://developers.google.com/search/docs/crawling-indexing/block-indexing) e [localização do robots.txt](https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec), conferidos em 01/10/2026.
+Não bloquear buscadores com `Disallow`: eles precisam ler o HTML para reconhecer `noindex`, ou o endereço ainda pode aparecer em resultados. Por isso o site não publica `robots.txt`. [Google: noindex](https://developers.google.com/search/docs/crawling-indexing/block-indexing) e [localização do robots.txt](https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec), conferidos em 01/10/2026.
 
 ## Referências
 
