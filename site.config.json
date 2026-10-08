@@ -1,9 +1,8 @@
 {
-  "owner": "EduKegler",
-  "repository": "blackout-site",
+  "domain": "blackout.kegler.dev",
   "responsible": "Eduardo Kegler",
-  "email": "eduardokegler1@gmail.com",
-  "updated": "2026-10-01",
+  "email": "contato@kegler.dev",
+  "updated": "2026-10-07",
   "publicationApproved": true,
   "privacyReviewed": true
 }

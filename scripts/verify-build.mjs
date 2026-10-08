@@ -2,7 +2,7 @@ import { readFile, readdir } from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import site from '../site.config.json' with { type: 'json' };
 
-const base = `/${site.repository}/`;
+const base = '/';
 for (const route of ['index.html', 'support/index.html', 'privacy/index.html', '404.html']) {
   const html = await readFile(`dist/${route}`, 'utf8');
   assert.match(html, /<html lang="pt-BR"/);
@@ -12,6 +12,9 @@ for (const route of ['index.html', 'support/index.html', 'privacy/index.html', '
     assert.match(html, new RegExp(`<meta name="${crawler}" content="noindex, nofollow,`));
   }
   assert.ok(!html.includes('Prévia local'), `${route}: aviso de prévia no build aprovado`);
+  if (route.startsWith('support/') || route.startsWith('privacy/')) {
+    assert.ok(html.includes(`href="mailto:${site.email}"`), `${route}: contato ausente ${site.email}`);
+  }
   for (const path of [base, `${base}support/`, `${base}privacy/`]) {
     assert.ok(html.includes(`href="${path}"`), `${route}: link ausente ${path}`);
   }
