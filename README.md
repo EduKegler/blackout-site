@@ -24,9 +24,9 @@ npm run preview
 
 ## Conteúdo e política
 
-`src/pages/privacy.astro` é a fonte canônica da política pública. App e pacote de distribuição devem usar a URL dessa página e revisar suas declarações quando o app mudar. A política cobre armazenamento local e coleta de teste via PostHog Cloud US, com ID persistente por instalação e opt-out. Não autoriza coleta de produção nem promete anonimização ou exclusão física em prazo não confirmado.
+`src/pages/privacy.astro` é a fonte canônica da política pública. App e pacote de distribuição devem usar a URL dessa página e revisar suas declarações quando o app mudar. A política cobre a versão Unity para iPhone e iPad: preferências locais, GameAnalytics opcional após aceite, anúncios do AdMob, consentimento regional via UMP e rastreamento autorizado pelo sistema. Não promete anonimização nem exclusão física em prazo não confirmado.
 
-Antes da publicação, Eduardo revisa nome, contato, texto e operação do suporte, inclusive fundamento e descarte de mensagens. Antes de ativar telemetria, a política precisa refletir a versão implementada, dados enviados, fornecedor/região, finalidade/fundamento, público, retenção, opção ligada por padrão, opt-out e exclusão realmente disponível. A preferência ligada não representa consentimento.
+Antes da publicação, Eduardo revisa nome, contato, texto e operação do suporte, inclusive fundamento e descarte de mensagens. A política precisa refletir a versão implementada, dados enviados, fornecedores, finalidade, público, retenção, aceite opcional para dados de uso, escolhas de anúncios e exclusão realmente disponível. O responsável pelo suporte continua em `site.config.json`; o publicador individual na App Store é Victor Hugo Schneider de Almeida.
 
 Configuração operacional remota não faz parte deste site. Foi retirada da integração do app em 01/10/2026. Links de suporte e privacidade não autorizam coleta.
 
