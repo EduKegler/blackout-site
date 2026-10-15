@@ -1,0 +1,42 @@
+---
+import Page from '../../layouts/Page.astro';
+import site from '../../../site.config.json';
+const updated = new Date(`${site.updated}T00:00:00Z`).toLocaleDateString('pt-BR', { timeZone: 'UTC' });
+---
+<Page lang="pt" title="Privacidade" description="Política de privacidade do Blackout.io." other="/privacy/">
+  <article class="prose">
+    <p class="eyebrow">Seus dados</p><h1>Política de privacidade</h1>
+    <p class="date">Atualizada em <time datetime={site.updated}>{updated}</time></p>
+    <section><h2>Responsável</h2>
+      <p>{site.responsible}. Contato: <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+    </section>
+    <section><h2>Dados no aparelho</h2>
+      <p>O jogo guarda no armazenamento local suas preferências, progresso, estado da compra e respostas da primeira abertura. Não há conta. Apagar o app remove esses dados.</p>
+    </section>
+    <section><h2>Idade e dados de uso</h2>
+      <p>Na primeira abertura o jogo pergunta o ano de nascimento e se você aceita compartilhar dados de uso. O ano só escolhe uma faixa de idade (menos de 13, 13 a 15, 16 a 17, 18 ou mais). Só a faixa é guardada, nunca o ano. A mesma tela aparece para qualquer idade.</p>
+      <p>Se você aceita, o jogo envia dados de uso à GameAnalytics: início, fim e abandono de partidas, colocação, vezes engolido, missões desbloqueadas, eventos de anúncio e de oferta, a compra Sem anúncios (produto, preço, moeda) e a faixa de idade. O SDK também envia dados de sessão, relatórios de erro e de falha, modelo do aparelho, versão do sistema e do jogo e identificadores que ele cria. A GameAnalytics recebe seu endereço IP e pode usá-lo para estimar o país. O jogo não deixa o SDK ler o identificador de publicidade. Se você escolhe Agora não, o SDK nem é iniciado.</p>
+      <p>Você desliga quando quiser: engrenagem do menu, Geral, Compartilhar dados de uso. O consentimento é o fundamento do envio. Desligar não apaga o que já foi enviado. Veja a <a href="https://gameanalytics.com/privacy">política da GameAnalytics</a>.</p>
+    </section>
+    <section><h2>Anúncios</h2>
+      <p>O jogo mostra um anúncio de tela cheia entre partidas, servido pelo Google AdMob. O Google recebe dados como endereço IP, identificadores do aparelho, localização aproximada, interações com anúncios e diagnósticos. Escolher Agora não nos dados de uso não desliga os anúncios. Veja a <a href="https://policies.google.com/privacy?hl=pt-BR">política do Google</a>.</p>
+      <ul>
+        <li>Menos de 13: anúncios tratados como dirigidos a crianças, sem personalização e sem pedido de rastreamento.</li>
+        <li>13 a 17: anúncios sem personalização e sem pedido de rastreamento.</li>
+        <li>18 ou mais: o pedido de rastreamento da Apple aparece uma vez. Se você permitir, o Google pode usar o identificador de publicidade (IDFA) para personalizar. Se não, os anúncios não são personalizados. Mude em Ajustes do iOS, Privacidade e segurança, Rastreamento.</li>
+      </ul>
+      <p>Onde a lei exige (como no EEE e no Reino Unido), um formulário de consentimento aparece antes, e Opções de privacidade nos ajustes o reabre. A compra Sem anúncios remove anúncios, formulário e pedido de rastreamento.</p>
+    </section>
+    <section><h2>Compra Sem anúncios</h2>
+      <p>O pagamento é da Apple. Nunca vemos dados de pagamento. Com o compartilhamento ligado, a compra vai à GameAnalytics como descrito acima. Veja a <a href="https://www.apple.com/legal/privacy/pt-br/">política da Apple</a>.</p>
+    </section>
+    <section><h2>Crianças</h2>
+      <p>Quem tem menos de 13 anos recebe anúncios dirigidos a crianças. Uma criança que toque em Aceitar e jogar também envia dados de uso. Pais e responsáveis podem pedir a exclusão pelo e-mail abaixo.</p>
+    </section>
+    <section><h2>Seus direitos e e-mails de suporte</h2>
+      <p>Para pedir acesso, correção ou exclusão, ou tirar dúvidas sobre seus dados, escreva para <a href={`mailto:${site.email}`}>{site.email}</a>. Os pedidos são avaliados conforme a lei. Localizar dados de uso pode exigir o identificador do SDK. Excluir dados já enviados à GameAnalytics ou ao Google depende dos mecanismos desses serviços.</p>
+      <p>Ao nos escrever, usamos seu endereço e sua mensagem só para responder, com base no legítimo interesse em prestar suporte. O e-mail passa pelo Gmail (Google). As mensagens são apagadas após a conclusão, salvo obrigação legal.</p>
+    </section>
+    <section><h2>Mudanças</h2><p>Mudanças serão publicadas nesta página, com a data acima, antes de entrarem em uso.</p></section>
+  </article>
+</Page>
