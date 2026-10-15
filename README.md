@@ -1,4 +1,4 @@
-# Blackout.io
+# Voidy
 
 Site de início, suporte e privacidade. Astro gera HTML e CSS estáticos. Não há JavaScript no navegador, fontes externas, analytics ou backend.
 
@@ -28,25 +28,25 @@ npm run preview
 
 Antes da publicação, Eduardo revisa nome, contato, texto e operação do suporte, inclusive fundamento e descarte de mensagens.
 
-`public/app-ads.txt` leva a linha do AdMob. O AdMob procura o arquivo um nível de subdomínio acima do site do desenvolvedor, então para `blackout.kegler.dev` ele lê `kegler.dev/app-ads.txt`: o arquivo da raiz mora no site pessoal e precisa da mesma linha. [Doc do Google](https://support.google.com/admob/answer/9363762).
+`public/app-ads.txt` leva a linha do AdMob. O AdMob procura o arquivo um nível de subdomínio acima do site do desenvolvedor, então para `voidy.kegler.dev` ele lê `kegler.dev/app-ads.txt`: o arquivo da raiz mora no site pessoal e precisa da mesma linha. [Doc do Google](https://support.google.com/admob/answer/9363762).
 
 Configuração operacional remota não faz parte deste site. Foi retirada da integração do app em 01/10/2026. Links de suporte e privacidade não autorizam coleta.
 
 ## Publicação
 
-Destino: repositório público `EduKegler/blackout-site`, no domínio próprio `blackout.kegler.dev`:
+Destino: repositório público `EduKegler/blackout-site`, no domínio próprio `voidy.kegler.dev`:
 
-* `https://blackout.kegler.dev/`
-* `https://blackout.kegler.dev/support/`
-* `https://blackout.kegler.dev/privacy/`
+* `https://voidy.kegler.dev/`
+* `https://voidy.kegler.dev/support/`
+* `https://voidy.kegler.dev/privacy/`
 * as mesmas três em português, sob `/pt/`
-* `https://blackout.kegler.dev/app-ads.txt`
+* `https://voidy.kegler.dev/app-ads.txt`
 
 Eduardo aprovou a política e a publicação em 01/10/2026. O workflow `.github/workflows/pages.yml` roda somente por pedido manual, depois do merge na main. Settings → Pages → Source usa GitHub Actions. Ele só constrói e publica o site; não liga CI ou review do jogo.
 
 Os aceites, o domínio e o contato estão registrados em `site.config.json`. O site fica na raiz do domínio, sem prefixo de repositório.
 
-O domínio vem de Settings → Pages → Custom domain, não de arquivo `CNAME`: com publicação por GitHub Actions o arquivo é ignorado. O DNS do `kegler.dev` fica na Vercel, com `CNAME blackout -> edukegler.github.io`. Com o domínio configurado, o endereço antigo em `edukegler.github.io/blackout-site/` redireciona para ele.
+O domínio vem de Settings → Pages → Custom domain, não de arquivo `CNAME`: com publicação por GitHub Actions o arquivo é ignorado. O DNS do `kegler.dev` fica na Vercel, com `CNAME voidy -> edukegler.github.io`. Com o domínio configurado, o endereço antigo em `edukegler.github.io/blackout-site/` redireciona para ele.
 
 Depois do deploy, conferir HTTPS e acesso sem login nas três URLs, links, contato e conteúdo. Registrar os endereços na BLACK-144 e entregar à distribuição e integração do app. Em App Store Connect, suporte fica em Support URL e política em Privacy Policy URL. A inclusão no app e no pacote de distribuição pertence às tasks desses componentes.
 
