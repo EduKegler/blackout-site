@@ -2,20 +2,20 @@
 import Page from '../layouts/Page.astro';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
-<Page title="Onze rivais, três mapas" description="Blackout.io é um jogo de buracos negros para iPhone e iPad. Partidas contra onze rivais em três mapas." other="/en/">
+<Page title="Three maps, eleven rivals" description="Blackout.io is a black hole game for iPhone and iPad. Matches against eleven rivals on three maps." other="/pt/">
   <section class="hero">
     <div>
-      <p class="eyebrow">iPhone e iPad.</p>
-      <h1>Três mapas.<br />Onze rivais.<br /><span>Seu buraco negro.</span></h1>
-      <p class="lead">Engula a cidade, cresça e devore os rivais menores antes do tempo acabar. Neon Harbor, Cidade do Natal e Fazenda.</p>
-      <a class="button" href={`${base}/support/`}>Precisa de ajuda? <span aria-hidden="true">↗</span></a>
+      <p class="eyebrow">iPhone and iPad.</p>
+      <h1>Three maps.<br />Eleven rivals.<br /><span>Your black hole.</span></h1>
+      <p class="lead">Swallow the city, grow, and devour smaller rivals before time runs out. Neon Harbor, Christmas City and Farm.</p>
+      <a class="button" href={`${base}/support/`}>Need help? <span aria-hidden="true">↗</span></a>
     </div>
     <div class="orbit" aria-hidden="true"><div class="hole"></div><span class="object one"></span><span class="object two"></span><span class="object three"></span></div>
   </section>
-  <section class="facts" aria-label="Sobre o jogo">
-    <div><h2>Jogue offline</h2><p>A partida roda sem internet. Sem conta para começar.</p></div>
-    <div><h2>Três mapas</h2><p>Neon Harbor, Cidade do Natal e Fazenda. Objetos para engolir e rivais para enfrentar.</p></div>
-    <div><h2>Do seu jeito</h2><p>Ajuste música, efeitos, vibração e controle nas configurações.</p></div>
+  <section class="facts" aria-label="About the game">
+    <div><h2>Play offline</h2><p>Matches run without internet. No account to start.</p></div>
+    <div><h2>Three maps</h2><p>Neon Harbor, Christmas City and Farm. Objects to swallow and rivals to face.</p></div>
+    <div><h2>Your way</h2><p>Adjust music, effects, vibration and language in the settings.</p></div>
   </section>
-  <section class="resource"><h2>Sobre seus dados</h2><p>Veja o que o app guarda no aparelho, os dados de uso, os anúncios e como o suporte funciona.</p><a href={`${base}/privacy/`}>Ler a política de privacidade <span aria-hidden="true">↗</span></a></section>
+  <section class="resource"><h2>About your data</h2><p>See what the app keeps on your device, the usage data, the ads and how support works.</p><a href={`${base}/privacy/`}>Read the privacy policy <span aria-hidden="true">↗</span></a></section>
 </Page>

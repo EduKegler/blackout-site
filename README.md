@@ -24,7 +24,7 @@ npm run preview
 
 ## Conteúdo e política
 
-`src/pages/privacy.astro` (português) e `src/pages/en/privacy.astro` (inglês) são a fonte da política pública, e o suporte e o início seguem o mesmo par. O texto vem do código e dos SDKs do jogo: GameAnalytics só com o aceite da primeira abertura, AdMob com o pedido de rastreamento da Apple para adultos, idade da primeira abertura e compra Sem anúncios. Quando o jogo mudar o que coleta ou mostra, revise os dois idiomas no mesmo PR e mude a data em `site.config.json`.
+`src/pages/privacy.astro` (inglês, o padrão) e `src/pages/pt/privacy.astro` (português) são a fonte da política pública, e o suporte e o início seguem o mesmo par. O texto vem do código e dos SDKs do jogo: GameAnalytics só com o aceite da primeira abertura, AdMob com o pedido de rastreamento da Apple para adultos, idade da primeira abertura e compra Sem anúncios. Quando o jogo mudar o que coleta ou mostra, revise os dois idiomas no mesmo PR e mude a data em `site.config.json`.
 
 Antes da publicação, Eduardo revisa nome, contato, texto e operação do suporte, inclusive fundamento e descarte de mensagens.
 
@@ -39,7 +39,7 @@ Destino: repositório público `EduKegler/blackout-site`, no domínio próprio `
 * `https://blackout.kegler.dev/`
 * `https://blackout.kegler.dev/support/`
 * `https://blackout.kegler.dev/privacy/`
-* as mesmas três em inglês, sob `/en/`
+* as mesmas três em português, sob `/pt/`
 * `https://blackout.kegler.dev/app-ads.txt`
 
 Eduardo aprovou a política e a publicação em 01/10/2026. O workflow `.github/workflows/pages.yml` roda somente por pedido manual, depois do merge na main. Settings → Pages → Source usa GitHub Actions. Ele só constrói e publica o site; não liga CI ou review do jogo.

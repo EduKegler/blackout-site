@@ -3,12 +3,12 @@ import assert from 'node:assert/strict';
 import site from '../site.config.json' with { type: 'json' };
 
 const base = '/';
-const routes = ['index.html', 'support/index.html', 'privacy/index.html', '404.html', 'en/index.html', 'en/support/index.html', 'en/privacy/index.html'];
+const routes = ['index.html', 'support/index.html', 'privacy/index.html', '404.html', 'pt/index.html', 'pt/support/index.html', 'pt/privacy/index.html'];
 for (const route of routes) {
   const html = await readFile(`dist/${route}`, 'utf8');
-  const english = route.startsWith('en/');
-  const prefix = english ? `${base}en/` : base;
-  assert.match(html, english ? /<html lang="en"/ : /<html lang="pt-BR"/);
+  const portuguese = route.startsWith('pt/');
+  const prefix = portuguese ? `${base}pt/` : base;
+  assert.match(html, portuguese ? /<html lang="pt-BR"/ : /<html lang="en"/);
   assert.equal((html.match(/<h1[ >]/g) || []).length, 1);
   assert.ok(!/<script\b|<form\b/i.test(html), `${route}: script ou formulário inesperado`);
   for (const crawler of ['robots', 'googlebot', 'bingbot']) {
@@ -29,7 +29,7 @@ for (const route of routes) {
 }
 const ads = await readFile('dist/app-ads.txt', 'utf8');
 assert.ok(ads.split('\n').includes('google.com, pub-4706417285476926, DIRECT, f08c47fec0942fa0'), 'app-ads.txt sem a linha do AdMob');
-for (const route of ['privacy/index.html', 'en/privacy/index.html']) {
+for (const route of ['privacy/index.html', 'pt/privacy/index.html']) {
   const html = await readFile(`dist/${route}`, 'utf8');
   assert.ok(!/posthog/i.test(html), `${route}: PostHog na política`);
   for (const term of ['GameAnalytics', 'AdMob']) assert.ok(html.includes(term), `${route}: falta ${term}`);

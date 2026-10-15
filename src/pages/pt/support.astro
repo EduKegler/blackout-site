@@ -1,0 +1,14 @@
+---
+import Page from '../../layouts/Page.astro';
+import site from '../../../site.config.json';
+---
+<Page lang="pt" title="Suporte" description="Contato do Blackout.io no iPhone e iPad." other="/support/">
+  <article class="prose">
+    <p class="eyebrow">Ajuda com o jogo</p><h1>Suporte</h1>
+    <section><h2>Fale com a gente</h2>
+      <p><a class="contact" href={`mailto:${site.email}`}>{site.email}</a></p>
+      <p>Inclua o modelo do aparelho, a versão do iOS ou iPadOS, a versão do jogo e os passos até o problema. Não envie senhas nem documentos.</p>
+      <p>Os ajustes ficam na engrenagem do menu. Veja a <a href="/pt/privacy/">política de privacidade</a> para seus dados.</p>
+    </section>
+  </article>
+</Page>

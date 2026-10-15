@@ -2,18 +2,13 @@
 import Page from '../layouts/Page.astro';
 import site from '../../site.config.json';
 ---
-<Page title="Suporte" description="Ajuda e contato para problemas com Blackout.io no iPhone e iPad." other="/en/support/">
+<Page title="Support" description="Contact for Blackout.io on iPhone and iPad." other="/pt/support/">
   <article class="prose">
-    <p class="eyebrow">Ajuda com o jogo</p><h1>Suporte</h1>
-    <p class="lead">Encontrou um problema? Conte o que aconteceu e como repetir.</p>
-    <section><h2>Fale com a gente</h2>
+    <p class="eyebrow">Help with the game</p><h1>Support</h1>
+    <section><h2>Contact us</h2>
       <p><a class="contact" href={`mailto:${site.email}`}>{site.email}</a></p>
-      <p>Inclua o modelo do iPhone ou iPad, a versão do iOS ou iPadOS, a versão do jogo e os passos até o problema.</p>
-      <p>Se ajudar, envie uma captura de tela sem informações pessoais. Não envie senhas, documentos ou logs completos.</p>
+      <p>Include your device model, the iOS or iPadOS version, the game version and the steps to the problem. Do not send passwords or documents.</p>
+      <p>Settings are under the gear in the menu. See the <a href="/privacy/">privacy policy</a> for your data.</p>
     </section>
-    <section><h2>O jogo precisa de internet?</h2><p>A partida roda sem internet, contra onze rivais, e não pede conta. Os anúncios entre partidas, a compra Sem anúncios e Restaurar compras precisam de internet.</p></section>
-    <section><h2>Onde ajusto o jogo?</h2><p>Abra os ajustes pela engrenagem do menu. Em Geral ficam a taxa de quadros, Restaurar compras, a opção de compartilhar dados de uso e a política de privacidade. Em Som ficam música, efeitos e vibração. Em Idioma, a língua do jogo. Dentro da partida, a engrenagem abre em Som.</p></section>
-    <section><h2>Como tiro os anúncios?</h2><p>Com a compra Sem anúncios, que aparece no menu. Se você já comprou e os anúncios voltaram, use Restaurar compras em Geral.</p></section>
-    <section><h2>Como meus dados são tratados?</h2><p>A <a href="/privacy/">política de privacidade</a> explica o que o jogo guarda, o que envia, os anúncios e o contato com o suporte.</p></section>
   </article>
 </Page>
