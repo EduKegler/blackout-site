@@ -3,47 +3,65 @@ import Page from '../layouts/Page.astro';
 import site from '../../site.config.json';
 const updated = new Date(`${site.updated}T00:00:00Z`).toLocaleDateString('pt-BR', { timeZone: 'UTC' });
 ---
-<Page title="Privacidade" description="Política de privacidade do Blackout.io. Dados locais, dados de uso enviados ao PostHog e contato com o suporte.">
+<Page title="Privacidade" description="Política de privacidade do Blackout.io: o que fica no aparelho, os dados de uso enviados à GameAnalytics, os anúncios do AdMob, a compra Sem anúncios e o contato." other="/en/privacy/">
   <article class="prose">
     <p class="eyebrow">Seus dados</p><h1>Política de privacidade</h1>
     <p class="date">Atualizada em <time datetime={site.updated}>{updated}</time></p>
-    <p class="lead">Esta política descreve os dados guardados no aparelho, o envio de dados de uso nas versões instrumentadas e o atendimento pelo suporte.</p>
+    <p class="lead">Esta política descreve o que o Blackout.io guarda no aparelho, o que envia, a quem e como você controla isso.</p>
     <section><h2>Responsável e contato</h2>
       <p>{site.responsible}. Dúvidas sobre privacidade: <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
     </section>
+    <section><h2>Em resumo</h2>
+      <ul>
+        <li>O jogo não tem conta, nem pede nome, e-mail, localização precisa, contatos, câmera ou microfone.</li>
+        <li>Dados de uso só vão para a GameAnalytics se você aceitar na primeira abertura, e você desliga quando quiser.</li>
+        <li>Há um anúncio de tela cheia entre partidas, servido pelo Google AdMob. A compra Sem anúncios tira os anúncios.</li>
+        <li>O identificador de publicidade só é usado pelos anúncios, e só se um adulto permitir o pedido de rastreamento da Apple.</li>
+      </ul>
+    </section>
     <section><h2>Dados no aparelho</h2>
-      <p>O jogo guarda preferências de áudio, vibração e controle, mapa salvo e histórico de resultados no armazenamento local.</p>
-      <p>Também registra sessões e tentativas: identificadores aleatórios da instalação, sessão e tentativa, versão, configuração, semente, datas, duração, massa, colocação, eliminações, pausas, abandono, interrupção e uso de jogar novamente. Esses registros ajudam a investigar o funcionamento do jogo. O histórico e os arquivos de diagnóstico ficam no aparelho; a coleta remota descrita abaixo recebe somente eventos novos.</p>
-      <p>O histórico de sessões mantém até 100 tentativas e 8 MiB. O registro de episódios mantém até 2.000 eventos e 8 MiB de conteúdo, além de até 16 checkpoints de tentativas abertas, e fica excluído do backup do sistema. Eventos mais antigos são removidos quando esses limites são atingidos. Replays de diagnóstico também ficam locais. Esses arquivos não são enviados automaticamente nem percorridos para enviar o histórico antigo.</p>
+      <p>O jogo guarda no armazenamento local as preferências (volume, vibração, taxa de quadros, idioma), o progresso (skins e missões), o estado da compra Sem anúncios e as suas respostas da primeira abertura. Apagar o app remove esses dados. Eles podem fazer parte de backups do sistema, e restaurar um backup pode recuperá-los.</p>
     </section>
-    <section><h2>Dados de uso e partidas</h2>
-      <p>As versões instrumentadas usam o PostHog para entender o uso do jogo, o ritmo das partidas e problemas de desempenho. O envio está restrito às versões de teste. A coleta de produção ainda não foi liberada.</p>
-      <p>Os eventos incluem abertura e retorno ao app, telas, início e fim de tentativas, pausas, interrupções, jogar novamente, configuração e semente da partida, consumo de objetos, massa, colocação, eliminações, rivais bots, fases, posição aproximada no mapa do jogo e medições de desempenho. Posição no mapa do jogo não é localização geográfica.</p>
-      <p>Os eventos também incluem identificadores da instalação, sessão e tentativa, datas e duração, versão do jogo, modelo do aparelho e versão do sistema. O identificador da instalação é um UUID aleatório gerado pelo app. Ele permanece entre aberturas e ao desligar ou reativar a coleta enquanto os dados locais forem preservados. Reinstalar o app ou perder esses dados pode gerar outro ID. Não é o identificador físico do aparelho.</p>
-      <p>Não enviamos nome, e-mail, CPF, nome do aparelho, identificador publicitário, toques brutos, gravação da tela ou replay da partida ao PostHog. O app ainda não tem conta nem associa os eventos a um cadastro. O identificador permite reunir o histórico de uma instalação; não prometemos que os registros sejam anônimos.</p>
+    <section><h2>Primeira abertura: idade e dados de uso</h2>
+      <p>Na primeira abertura o jogo pergunta o ano de nascimento, numa roda, e se você aceita compartilhar dados de uso. A tela é a mesma para qualquer idade. Os dois botões, Aceitar e jogar e Agora não, levam ao jogo.</p>
+      <p>O ano serve só para escolher uma faixa de idade: menos de 13, 13 a 15, 16 a 17 ou 18 ou mais. O jogo guarda a faixa, nunca o ano. Se você não mexer na roda, ela conta como 18 ou mais. Antes da primeira resposta, o jogo trata você como criança.</p>
+      <p>A faixa de idade define como os anúncios são pedidos, mesmo que você escolha Agora não. Se você aceitar, ela também vai para a GameAnalytics junto com os dados de uso.</p>
     </section>
-    <section><h2>Fornecedor e armazenamento</h2>
-      <p>Os eventos são enviados por conexão HTTPS ao PostHog Cloud, na região dos Estados Unidos. O serviço recebe o endereço IP para estabelecer a conexão. O projeto está configurado para descartar o IP dos eventos, e o app desativa o enriquecimento de localização geográfica. O processamento do fornecedor está sujeito aos seus contratos e políticas. Consulte a <a href="https://posthog.com/privacy">política de privacidade do PostHog</a>.</p>
-      <p>O plano Free oferece uma janela de consulta de um ano. Essa janela não garante a exclusão física de todos os registros ao completar um ano. Não prometemos um prazo de eliminação física que o fornecedor não tenha confirmado. Consulte a <a href="https://posthog.com/docs/data/events-retention">documentação de retenção do PostHog</a>.</p>
-      <p>Sem rede, a fila de envio permanece no aparelho, com até 2.000 eventos e limite de 16 KiB por evento, além dos metadados. Os eventos antigos podem ser descartados quando a fila atingir o limite. Não há prazo fixo de sete dias para essa fila nem garantia de entrega de cada evento. A identidade e os checkpoints da coleta remota ficam excluídos do backup.</p>
+    <section><h2>Dados de uso (GameAnalytics)</h2>
+      <p>Se você aceita, o jogo usa a GameAnalytics para entender como as partidas acontecem e achar erros. Se você escolhe Agora não, o SDK da GameAnalytics nem é iniciado.</p>
+      <p>O jogo envia: início, fim e abandono de partidas, colocação, quantas vezes você foi engolido, segundos jogados antes de sair, missões desbloqueadas, quando a oferta Sem anúncios aparece e se você a dispensa, quando um anúncio é exibido, a compra Sem anúncios (produto, preço e moeda) e a faixa de idade. A receita dos anúncios exibidos também vai para a GameAnalytics enquanto o compartilhamento estiver ligado.</p>
+      <p>O SDK acrescenta o que é próprio dele: abertura e duração da sessão, relatórios de erros e de falhas, modelo do aparelho, versão do sistema e do jogo, e identificadores de usuário e de aparelho que o SDK cria. A GameAnalytics recebe o endereço IP na conexão e pode usá-lo para estimar o país. O jogo impede o SDK de ler o identificador de publicidade, mesmo que você permita o rastreamento.</p>
+      <p>Não enviamos nome, e-mail, contatos, localização precisa nem gravação da tela. Os dados ficam ligados ao identificador criado pelo SDK, que não é o seu nome; não prometemos que sejam anônimos.</p>
+      <p>Para desligar, abra a engrenagem do menu, vá em Geral e desligue Compartilhar dados de uso. O envio para na hora. Isso não apaga o que já foi enviado. A GameAnalytics trata os dados conforme a <a href="https://gameanalytics.com/privacy">política de privacidade</a> dela, e não prometemos um prazo de eliminação que ela não tenha confirmado. O fundamento do envio é o seu consentimento, que você retira desligando a opção.</p>
     </section>
-    <section><h2>Controlar o envio</h2>
-      <p>A opção “Compartilhar dados de uso” começa ligada nas versões instrumentadas. Você pode desligá-la nas configurações, pela engrenagem. A preferência permanece desligada após reiniciar ou atualizar o app.</p>
-      <p>Desligar interrompe a coleta remota, cancela os envios ainda canceláveis e apaga a fila e os checkpoints. Uma requisição já aceita pelo serviço pode não ser revogada. Isso não apaga os dados já enviados. Reativar conserva o ID da instalação e não envia o diagnóstico antigo nem os eventos ocorridos enquanto a coleta estava desligada.</p>
-      <p>As partidas continuam funcionando offline e com a coleta desligada. O app não mostra código de privacidade nem oferece exclusão direta de eventos no PostHog.</p>
+    <section><h2>Anúncios (Google AdMob)</h2>
+      <p>O jogo mostra um anúncio de tela cheia entre partidas, servido pelo Google AdMob. Para isso o Google recebe, do SDK dele, dados como endereço IP, identificadores do aparelho, localização aproximada, interações com os anúncios e dados de desempenho e diagnóstico. Todos os anúncios têm classificação para todos os públicos. Veja a <a href="https://policies.google.com/privacy?hl=pt-BR">política de privacidade do Google</a>.</p>
+      <p>Como o anúncio é pedido depende da faixa de idade:</p>
+      <ul>
+        <li>Menos de 13 anos: anúncio tratado como dirigido a crianças, sem personalização e sem pedido de rastreamento.</li>
+        <li>13 a 17 anos: anúncio sem personalização e sem pedido de rastreamento.</li>
+        <li>18 anos ou mais: o jogo mostra uma vez o pedido de rastreamento da Apple, no menu ou na tela de resultado. Se você permitir, o Google pode usar o identificador de publicidade (IDFA) para personalizar os anúncios. Se negar, os anúncios não são personalizados. Você muda isso a qualquer hora em Ajustes do iOS, Privacidade e segurança, Rastreamento.</li>
+      </ul>
+      <p>Onde a lei pede (como no Espaço Econômico Europeu e no Reino Unido), o Google mostra antes um formulário de consentimento. Nesses lugares, a engrenagem do menu ganha o botão Opções de privacidade, que reabre o formulário.</p>
+      <p>Escolher Agora não nos dados de uso não desliga os anúncios. Quem tem a compra Sem anúncios não recebe anúncios, o formulário de consentimento nem o pedido de rastreamento.</p>
     </section>
-    <section><h2>Conta, permissões e publicidade</h2><p>O app não exige conta e não contém anúncios. Não acessa localização, contatos, câmera, microfone ou identificador de publicidade. Música e vibração são saídas do aparelho, sem gravação de áudio.</p></section>
-    <section><h2>Remover dados locais</h2><p>Apagar o app remove seu armazenamento local. Os dados podem integrar backups geridos pelo sistema, e a restauração de um backup pode recuperá-los. O jogo não implementa sincronização entre aparelhos. Apagar o app não apaga eventos já enviados ao PostHog.</p></section>
+    <section><h2>Compra Sem anúncios</h2>
+      <p>A compra é feita pela Apple, na App Store. Não vemos nem guardamos número de cartão ou dados de pagamento. O jogo só recebe da loja a confirmação de que você tem a compra, e Restaurar compras, em Geral, a pede de novo. Se o compartilhamento estiver ligado, a compra vai para a GameAnalytics como evento de compra, com produto, preço e moeda. Veja a <a href="https://www.apple.com/legal/privacy/pt-br/">política de privacidade da Apple</a>.</p>
+    </section>
+    <section><h2>Crianças</h2>
+      <p>Quem informa menos de 13 anos recebe anúncios tratados como dirigidos a crianças. Como a primeira tela é igual para todas as idades, uma criança que toque em Aceitar e jogar também envia dados de uso, com a faixa menos de 13. Pais e responsáveis podem pedir a exclusão pelo e-mail abaixo.</p>
+    </section>
+    <section><h2>Permissões</h2><p>O jogo usa a internet para os anúncios e para a compra. A partida roda sem internet. Ele não acessa localização precisa, contatos, câmera ou microfone. Música e vibração são saídas do aparelho, sem gravação de áudio.</p></section>
     <section><h2>Quando você procura o suporte</h2><p>Ao enviar um e-mail, você compartilha seu endereço e o conteúdo da mensagem com o responsável pelo atendimento e com os provedores de e-mail envolvidos. Envie apenas o necessário para explicar o problema.</p>
       <p>Usamos essas informações para responder ao seu pedido, investigar o problema e prestar suporte. O fundamento para esse tratamento é o legítimo interesse em atender quem usa o jogo.</p>
       <p>O atendimento usa Gmail, serviço do Google. O processamento pode ocorrer fora do Brasil conforme as condições do provedor. Consulte a <a href="https://policies.google.com/privacy?hl=pt-BR">política de privacidade do Google</a>.</p>
-      <p>As mensagens são mantidas durante o atendimento e apagadas após sua conclusão, salvo obrigação legal de conservação. Para solicitar acesso, correção ou exclusão de informações enviadas ao suporte, escreva para <a href={`mailto:${site.email}`}>{site.email}</a>. Não envie dados de outras pessoas.</p>
+      <p>As mensagens são mantidas durante o atendimento e apagadas após sua conclusão, salvo obrigação legal de conservação.</p>
     </section>
-    <section><h2>Dúvidas e direitos sobre seus dados</h2>
-      <p>Para dúvidas sobre o tratamento ou para exercer os direitos aplicáveis aos seus dados, entre em contato pelo e-mail <a href={`mailto:${site.email}`}>{site.email}</a>. Os pedidos são avaliados conforme a legislação, a possibilidade de localizar os registros e as hipóteses de conservação. Não envie senhas, documentos ou dados de outras pessoas.</p>
-      <p>A exclusão de eventos já enviados não acontece ao desligar a coleta ou apagar o app. A exclusão de registros no fornecedor depende dos mecanismos disponibilizados pelo serviço e das hipóteses legais de conservação.</p>
+    <section><h2>Seus direitos</h2>
+      <p>Para dúvidas, ou para pedir acesso, correção ou exclusão de dados, escreva para <a href={`mailto:${site.email}`}>{site.email}</a>. Os pedidos são avaliados conforme a legislação, a possibilidade de localizar os registros e as hipóteses de conservação. Como o jogo não tem conta, localizar dados de uso pode exigir o identificador do SDK. Não envie senhas, documentos ou dados de outras pessoas.</p>
+      <p>A exclusão de dados já enviados à GameAnalytics ou ao Google depende dos mecanismos que esses serviços oferecem. Desligar o compartilhamento ou apagar o app não os apaga.</p>
     </section>
     <section><h2>Este site</h2><p>O site não inclui analytics, formulário, cookies próprios ou scripts de rastreamento. A hospedagem no GitHub Pages envolve o processamento de dados de conexão pelo GitHub. Consulte a <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">declaração de privacidade do GitHub</a>.</p></section>
-    <section><h2>Mudanças nesta política</h2><p>A data acima indica a última atualização. Mudanças nos dados coletados, no fornecedor ou na associação a uma conta serão refletidas nesta página antes de entrar em uso.</p></section>
+    <section><h2>Mudanças nesta política</h2><p>A data acima indica a última atualização. Mudanças nos dados coletados, nos serviços usados ou na associação a uma conta serão refletidas nesta página antes de entrar em uso.</p></section>
   </article>
 </Page>

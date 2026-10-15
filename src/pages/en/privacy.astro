@@ -1,0 +1,67 @@
+---
+import Page from '../../layouts/Page.astro';
+import site from '../../../site.config.json';
+const updated = new Date(`${site.updated}T00:00:00Z`).toLocaleDateString('en-US', { timeZone: 'UTC', year: 'numeric', month: 'long', day: 'numeric' });
+---
+<Page lang="en" title="Privacy" description="Blackout.io privacy policy: what stays on the device, the usage data sent to GameAnalytics, AdMob ads, the No ads purchase and how to contact us." other="/privacy/">
+  <article class="prose">
+    <p class="eyebrow">Your data</p><h1>Privacy policy</h1>
+    <p class="date">Updated <time datetime={site.updated}>{updated}</time></p>
+    <p class="lead">This policy describes what Blackout.io keeps on your device, what it sends, to whom, and how you control it.</p>
+    <section><h2>Who is responsible</h2>
+      <p>{site.responsible}. Privacy questions: <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+    </section>
+    <section><h2>In short</h2>
+      <ul>
+        <li>The game has no account and does not ask for your name, email, precise location, contacts, camera or microphone.</li>
+        <li>Usage data goes to GameAnalytics only if you accept on the first opening, and you can turn it off at any time.</li>
+        <li>A full-screen ad plays between matches, served by Google AdMob. The No ads purchase removes the ads.</li>
+        <li>The advertising identifier is used only by the ads, and only if an adult allows Apple's tracking request.</li>
+      </ul>
+    </section>
+    <section><h2>Data on your device</h2>
+      <p>The game keeps in local storage your preferences (volume, vibration, frame rate, language), your progress (skins and missions), the state of the No ads purchase and your answers from the first opening. Deleting the app removes this data. It may be part of system backups, and restoring a backup may bring it back.</p>
+    </section>
+    <section><h2>First opening: age and usage data</h2>
+      <p>On the first opening the game asks for your year of birth, on a wheel, and whether you accept sharing usage data. The screen is the same for every age. Both buttons, Accept and play and Not now, lead to the game.</p>
+      <p>The year only picks an age group: under 13, 13 to 15, 16 to 17, or 18 and over. The game keeps the group, never the year. If you do not touch the wheel, it counts as 18 or over. Before the first answer, the game treats you as a child.</p>
+      <p>The age group sets how ads are requested, even if you choose Not now. If you accept, it also goes to GameAnalytics with the usage data.</p>
+    </section>
+    <section><h2>Usage data (GameAnalytics)</h2>
+      <p>If you accept, the game uses GameAnalytics to understand how matches go and to find errors. If you choose Not now, the GameAnalytics SDK is never started.</p>
+      <p>The game sends: match start, end and quit, your placement, how many times you were swallowed, seconds played before leaving, missions unlocked, when the No ads offer shows and whether you dismiss it, when an ad is shown, the No ads purchase (product, price and currency) and the age group. Revenue from the ads shown also goes to GameAnalytics while sharing is on.</p>
+      <p>The SDK adds its own data: session start and length, error and crash reports, device model, system and game version, and user and device identifiers that the SDK creates. GameAnalytics receives your IP address with the connection and may use it to estimate your country. The game stops the SDK from reading the advertising identifier, even if you allow tracking.</p>
+      <p>We do not send your name, email, contacts, precise location or screen recordings. The data is tied to the identifier the SDK creates, which is not your name. We do not promise it is anonymous.</p>
+      <p>To turn it off, open the gear in the menu, go to General and switch off Share usage data. Sending stops right away. This does not delete what was already sent. GameAnalytics handles the data under its <a href="https://gameanalytics.com/privacy">privacy policy</a>, and we do not promise a deletion period it has not confirmed. The basis for sending is your consent, which you withdraw by switching the option off.</p>
+    </section>
+    <section><h2>Ads (Google AdMob)</h2>
+      <p>The game shows a full-screen ad between matches, served by Google AdMob. For that, Google receives from its SDK data such as IP address, device identifiers, approximate location, ad interactions, and performance and diagnostic data. Every ad is rated for all audiences. See <a href="https://policies.google.com/privacy">Google's privacy policy</a>.</p>
+      <p>How the ad is requested depends on the age group:</p>
+      <ul>
+        <li>Under 13: ad treated as child-directed, not personalized, with no tracking request.</li>
+        <li>13 to 17: ad not personalized, with no tracking request.</li>
+        <li>18 and over: the game shows Apple's tracking request once, on the menu or the result screen. If you allow it, Google may use the advertising identifier (IDFA) to personalize ads. If you deny it, ads are not personalized. You can change this at any time in iOS Settings, Privacy &amp; Security, Tracking.</li>
+      </ul>
+      <p>Where the law asks for it (such as the European Economic Area and the United Kingdom), Google first shows a consent form. In those places the menu's gear gains a Privacy options button that reopens the form.</p>
+      <p>Choosing Not now on usage data does not turn the ads off. Players with the No ads purchase get no ads, no consent form and no tracking request.</p>
+    </section>
+    <section><h2>No ads purchase</h2>
+      <p>The purchase is made through Apple, on the App Store. We do not see or keep card numbers or payment details. The game only receives from the store the confirmation that you own the purchase, and Restore purchases, under General, asks for it again. If sharing is on, the purchase goes to GameAnalytics as a purchase event, with product, price and currency. See <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a>.</p>
+    </section>
+    <section><h2>Children</h2>
+      <p>Players who enter an age under 13 get ads treated as child-directed. Because the first screen is the same for every age, a child who taps Accept and play also sends usage data, with the group under 13. Parents and guardians can ask for deletion at the email below.</p>
+    </section>
+    <section><h2>Permissions</h2><p>The game uses the internet for ads and for the purchase. Matches run without internet. It does not access precise location, contacts, camera or microphone. Music and vibration are device outputs, with no audio recording.</p></section>
+    <section><h2>When you contact support</h2><p>When you send an email, you share your address and the content of the message with the person handling support and with the email providers involved. Send only what is needed to explain the problem.</p>
+      <p>We use this information to answer your request, investigate the problem and give support. The basis is our legitimate interest in helping people who play the game.</p>
+      <p>Support uses Gmail, a Google service. Processing may happen outside your country under the provider's terms. See <a href="https://policies.google.com/privacy">Google's privacy policy</a>.</p>
+      <p>Messages are kept while the request is open and deleted after it is closed, unless the law requires keeping them.</p>
+    </section>
+    <section><h2>Your rights</h2>
+      <p>For questions, or to ask for access, correction or deletion of data, write to <a href={`mailto:${site.email}`}>{site.email}</a>. Requests are assessed under the applicable law, whether the records can be found, and legal reasons to keep them. Since the game has no account, finding usage data may need the SDK identifier. Do not send passwords, documents or other people's data.</p>
+      <p>Deleting data already sent to GameAnalytics or Google depends on the tools those services offer. Turning sharing off or deleting the app does not delete it.</p>
+    </section>
+    <section><h2>This site</h2><p>The site has no analytics, forms, own cookies or tracking scripts. Hosting on GitHub Pages involves GitHub processing connection data. See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>.</p></section>
+    <section><h2>Changes to this policy</h2><p>The date above shows the last update. Changes to the data collected, the services used or any link to an account will be reflected on this page before they take effect.</p></section>
+  </article>
+</Page>

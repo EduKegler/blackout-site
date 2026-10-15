@@ -24,9 +24,11 @@ npm run preview
 
 ## Conteúdo e política
 
-`src/pages/privacy.astro` é a fonte canônica da política pública. App e pacote de distribuição devem usar a URL dessa página e revisar suas declarações quando o app mudar. A política cobre armazenamento local e coleta de teste via PostHog Cloud US, com ID persistente por instalação e opt-out. Não autoriza coleta de produção nem promete anonimização ou exclusão física em prazo não confirmado.
+`src/pages/privacy.astro` (português) e `src/pages/en/privacy.astro` (inglês) são a fonte da política pública, e o suporte e o início seguem o mesmo par. O texto vem do código e dos SDKs do jogo: GameAnalytics só com o aceite da primeira abertura, AdMob com o pedido de rastreamento da Apple para adultos, idade da primeira abertura e compra Sem anúncios. Quando o jogo mudar o que coleta ou mostra, revise os dois idiomas no mesmo PR e mude a data em `site.config.json`.
 
-Antes da publicação, Eduardo revisa nome, contato, texto e operação do suporte, inclusive fundamento e descarte de mensagens. Antes de ativar telemetria, a política precisa refletir a versão implementada, dados enviados, fornecedor/região, finalidade/fundamento, público, retenção, opção ligada por padrão, opt-out e exclusão realmente disponível. A preferência ligada não representa consentimento.
+Antes da publicação, Eduardo revisa nome, contato, texto e operação do suporte, inclusive fundamento e descarte de mensagens.
+
+`public/app-ads.txt` leva a linha do AdMob. O AdMob procura o arquivo um nível de subdomínio acima do site do desenvolvedor, então para `blackout.kegler.dev` ele lê `kegler.dev/app-ads.txt`: o arquivo da raiz mora no site pessoal e precisa da mesma linha. [Doc do Google](https://support.google.com/admob/answer/9363762).
 
 Configuração operacional remota não faz parte deste site. Foi retirada da integração do app em 01/10/2026. Links de suporte e privacidade não autorizam coleta.
 
@@ -37,6 +39,8 @@ Destino: repositório público `EduKegler/blackout-site`, no domínio próprio `
 * `https://blackout.kegler.dev/`
 * `https://blackout.kegler.dev/support/`
 * `https://blackout.kegler.dev/privacy/`
+* as mesmas três em inglês, sob `/en/`
+* `https://blackout.kegler.dev/app-ads.txt`
 
 Eduardo aprovou a política e a publicação em 01/10/2026. O workflow `.github/workflows/pages.yml` roda somente por pedido manual, depois do merge na main. Settings → Pages → Source usa GitHub Actions. Ele só constrói e publica o site; não liga CI ou review do jogo.
 

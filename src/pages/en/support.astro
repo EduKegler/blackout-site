@@ -1,0 +1,19 @@
+---
+import Page from '../../layouts/Page.astro';
+import site from '../../../site.config.json';
+---
+<Page lang="en" title="Support" description="Help and contact for problems with Blackout.io on iPhone and iPad." other="/support/">
+  <article class="prose">
+    <p class="eyebrow">Help with the game</p><h1>Support</h1>
+    <p class="lead">Found a problem? Tell us what happened and how to repeat it.</p>
+    <section><h2>Contact us</h2>
+      <p><a class="contact" href={`mailto:${site.email}`}>{site.email}</a></p>
+      <p>Include your iPhone or iPad model, the iOS or iPadOS version, the game version and the steps to the problem.</p>
+      <p>If it helps, send a screenshot with no personal information. Do not send passwords, documents or full logs.</p>
+    </section>
+    <section><h2>Does the game need internet?</h2><p>Matches run without internet, against eleven rivals, and need no account. The ads between matches, the No ads purchase and Restore purchases need internet.</p></section>
+    <section><h2>Where do I change settings?</h2><p>Open the settings with the gear in the menu. Under General are the frame rate, Restore purchases, the option to share usage data and the privacy policy. Under Sound are music, effects and vibration. Under Language is the game's language. Inside a match, the gear opens on Sound.</p></section>
+    <section><h2>How do I remove the ads?</h2><p>With the No ads purchase, which shows in the menu. If you already bought it and the ads came back, use Restore purchases under General.</p></section>
+    <section><h2>How is my data handled?</h2><p>The <a href="/en/privacy/">privacy policy</a> explains what the game keeps, what it sends, the ads and contacting support.</p></section>
+  </article>
+</Page>

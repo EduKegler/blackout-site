@@ -1,14 +1,19 @@
 ---
 import site from '../../site.config.json';
 import '../styles/global.css';
-interface Props { title: string; description: string; }
-const { title, description } = Astro.props;
+interface Props { title: string; description: string; lang?: 'pt' | 'en'; other?: string; }
+const { title, description, lang = 'pt', other } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const links = [['Início', `${base}/`], ['Suporte', `${base}/support/`], ['Privacidade', `${base}/privacy/`]];
+const copy = {
+  pt: { html: 'pt-BR', prefix: '', nav: ['Início', 'Suporte', 'Privacidade'], skip: 'Pular para o conteúdo', main: 'Navegação principal', home: 'Blackout.io, início', footer: 'Blackout.io · iPhone e iPad', policy: 'Política de privacidade', switch: 'English', draft: 'Prévia local. Contato e política aguardam revisão antes da publicação.' },
+  en: { html: 'en', prefix: '/en', nav: ['Home', 'Support', 'Privacy'], skip: 'Skip to content', main: 'Main navigation', home: 'Blackout.io, home', footer: 'Blackout.io · iPhone and iPad', policy: 'Privacy policy', switch: 'Português', draft: 'Local preview. Contact and policy are waiting for review before publishing.' },
+}[lang];
+const root = `${base}${copy.prefix}`;
+const links = [[copy.nav[0], `${root}/`], [copy.nav[1], `${root}/support/`], [copy.nav[2], `${root}/privacy/`]];
 const draft = !site.publicationApproved || !site.privacyReviewed || !site.email || !site.responsible;
 ---
 <!doctype html>
-<html lang="pt-BR">
+<html lang={copy.html}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,18 +25,19 @@ const draft = !site.publicationApproved || !site.privacyReviewed || !site.email 
     <title>{title} | Blackout.io</title>
   </head>
   <body>
-    <a class="skip" href="#content">Pular para o conteúdo</a>
-    {draft && <aside class="draft">Prévia local. Contato e política aguardam revisão antes da publicação.</aside>}
+    <a class="skip" href="#content">{copy.skip}</a>
+    {draft && <aside class="draft">{copy.draft}</aside>}
     <header class="shell header">
-      <a class="brand" href={`${base}/`} aria-label="Blackout.io, início"><span class="mark" aria-hidden="true"></span>Blackout.io</a>
-      <nav aria-label="Navegação principal">
+      <a class="brand" href={`${root}/`} aria-label={copy.home}><span class="mark" aria-hidden="true"></span>Blackout.io</a>
+      <nav aria-label={copy.main}>
         {links.map(([label, href]) => <a href={href} aria-current={Astro.url.pathname === href ? 'page' : undefined}>{label}</a>)}
+        {other && <a href={other} lang={lang === 'pt' ? 'en' : 'pt-BR'}>{copy.switch}</a>}
       </nav>
     </header>
     <main id="content" class="shell" tabindex="-1"><slot /></main>
     <footer class="shell footer">
-      <span>Blackout.io · iPhone e iPad</span>
-      <a href={`${base}/privacy/`}>Política de privacidade</a>
+      <span>{copy.footer}</span>
+      <a href={`${root}/privacy/`}>{copy.policy}</a>
     </footer>
   </body>
 </html>
