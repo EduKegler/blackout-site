@@ -24,9 +24,9 @@ npm run preview
 
 ## Conteúdo e política
 
-`src/pages/privacy.astro` (inglês, o padrão) e `src/pages/pt/privacy.astro` (português) são a fonte da política pública, e o suporte e o início seguem o mesmo par. O texto vem do código e dos SDKs do jogo: GameAnalytics só com o aceite da primeira abertura, AdMob com o pedido de rastreamento da Apple para adultos, idade da primeira abertura e compra Sem anúncios. Quando o jogo mudar o que coleta ou mostra, revise os dois idiomas no mesmo PR e mude a data em `site.config.json`.
+`src/pages/privacy.astro` (inglês, o padrão) e `src/pages/pt/privacy.astro` (português) são a fonte da política pública, e o suporte e o início seguem o mesmo par. O texto vem do código e dos SDKs do jogo: GameAnalytics no iOS e Sentry no iOS/Android só para a faixa adulta com aceite, AdMob com tratamento por idade e anúncios não personalizados no Android, idade da primeira abertura e compras pela Apple ou pelo Google Play. A GameAnalytics ainda não está configurada para Android. Quando o jogo mudar o que coleta ou mostra, revise os dois idiomas no mesmo PR e mude a data em `site.config.json`.
 
-Antes da publicação, Eduardo revisa nome, contato, texto e operação do suporte, inclusive fundamento e descarte de mensagens.
+Antes da publicação, Eduardo revisa nome, contato, texto e operação do suporte, inclusive fundamento e descarte de mensagens. A atualização de 19/10/2026 está em prévia (`privacyReviewed: false`) e depende da integração da proteção infantil da branch `fix/play-families-consent` do jogo; não publicar este texto como comportamento atual de builds anteriores. Depois de conferir o build distribuído, atualizar o aceite de revisão e publicar os dois juntos.
 
 `public/app-ads.txt` leva a linha do AdMob. O AdMob procura o arquivo um nível de subdomínio acima do site do desenvolvedor, então para `voidy.kegler.dev` ele lê `kegler.dev/app-ads.txt`: o arquivo da raiz mora no site pessoal e precisa da mesma linha. [Doc do Google](https://support.google.com/admob/answer/9363762).
 
