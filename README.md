@@ -24,7 +24,7 @@ npm run preview
 
 ## Conteúdo e política
 
-`src/pages/privacy.astro` (inglês, o padrão) e `src/pages/pt/privacy.astro` (português) são a fonte da política pública, e o suporte e o início seguem o mesmo par. O texto vem do código e dos SDKs do jogo: GameAnalytics só com o aceite da primeira abertura, AdMob com o pedido de rastreamento da Apple para adultos, idade da primeira abertura e compra Sem anúncios. Quando o jogo mudar o que coleta ou mostra, revise os dois idiomas no mesmo PR e mude a data em `site.config.json`.
+`src/pages/privacy.astro` (inglês, o padrão) e `src/pages/pt/privacy.astro` (português) são a fonte da política pública, e o suporte e o início seguem o mesmo par. O texto vem do código e dos SDKs do jogo, no iPhone, iPad e Android: GameAnalytics e Sentry só com o aceite da primeira abertura, AdMob com o pedido de rastreamento da Apple para adultos no iOS e sem personalização no Android, idade da primeira abertura, compra Sem anúncios e, no Android, Unity IAP. A política precisa bater com a Segurança dos dados do Google Play. Quando o jogo mudar o que coleta ou mostra, revise os dois idiomas no mesmo PR e mude a data em `site.config.json`.
 
 Antes da publicação, Eduardo revisa nome, contato, texto e operação do suporte, inclusive fundamento e descarte de mensagens.
 
