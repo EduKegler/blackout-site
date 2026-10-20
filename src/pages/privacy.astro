@@ -7,6 +7,7 @@ const updated = new Date(`${site.updated}T00:00:00Z`).toLocaleDateString('en-US'
   <article class="prose">
     <p class="eyebrow">Your data</p><h1>Privacy policy</h1>
     <p class="date">Updated <time datetime={site.updated}>{updated}</time></p>
+    <p>This policy covers Voidy on iPhone, iPad and Android.</p>
     <section><h2>Who is responsible</h2>
       <p>{site.responsible}. Contact: <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
     </section>
@@ -14,28 +15,38 @@ const updated = new Date(`${site.updated}T00:00:00Z`).toLocaleDateString('en-US'
       <p>The game keeps your preferences, progress, purchase state and first-opening answers in local storage. There is no account. Deleting the app removes this data.</p>
     </section>
     <section><h2>Age and usage data</h2>
-      <p>On the first opening the game asks for your year of birth and whether you accept sharing usage data. The year only picks an age group (under 13, 13 to 15, 16 to 17, 18 and over). Only the group is kept, never the year. The same screen is shown to every age.</p>
-      <p>If you accept, the game sends usage data to GameAnalytics: match start, end and quit, placement, times swallowed, missions unlocked, ad and offer events, the No ads purchase (product, price, currency) and the age group. The SDK also sends session data, error reports, device model, system and game version, and identifiers it creates. GameAnalytics receives your IP address and may use it to estimate your country. The game does not let it read the advertising identifier. If you choose Not now, the SDK is never started.</p>
+      <p>On the first opening the game asks for your year of birth and whether you accept sharing usage data. The year only picks an age group (under 13, 13 to 15, 16 to 17, 18 and over). Only the group is kept, never the year. The same screen is shown to every age. On Android it starts with no year selected, and if no year is given the game treats the player as under 13.</p>
+      <p>If you accept, the game sends usage data to GameAnalytics: match start, end and quit, placement, times swallowed, missions unlocked, ad and offer events, the No ads purchase (product, price, currency) and the age group. The SDK also sends session data, error reports, device model, system and game version, and identifiers it creates. GameAnalytics receives your IP address and may use it to estimate your country. The game does not let it read the advertising identifier. On Android it identifies the device by the Android ID or the App Set ID, never the advertising ID. If you choose Not now, the SDK is never started.</p>
       <p>With the same consent, the game sends crash and error reports to Sentry, to fix bugs: where the game crashed or failed, the game's latest log messages, and data such as device model, system and game version, memory, language, time zone and an identifier the SDK creates. Sentry receives your IP address with the connection but does not store it. The advertising identifier is not sent. If you choose Not now, the SDK is never started.</p>
       <p>You can turn this off at any time: gear in the menu, General, Share usage data. This turns off both. Consent is the basis for sending. Data already sent is not deleted by turning it off. See the <a href="https://gameanalytics.com/privacy">GameAnalytics privacy policy</a> and <a href="https://sentry.io/privacy/">Sentry's</a>.</p>
     </section>
     <section><h2>Ads</h2>
-      <p>The game shows a full-screen ad between matches, served by Google AdMob. Google receives data such as IP address, device identifiers, approximate location, ad interactions and diagnostics. Choosing Not now on usage data does not turn ads off. See <a href="https://policies.google.com/privacy">Google's privacy policy</a>.</p>
+      <p>The game shows a full-screen ad between matches, served by Google AdMob. Google receives data such as IP address, device identifiers, approximate location, ad interactions and diagnostics. Google uses them to show and measure ads and to prevent fraud. Choosing Not now on usage data does not turn ads off. See <a href="https://policies.google.com/privacy">Google's privacy policy</a>.</p>
+      <p>On iPhone and iPad:</p>
       <ul>
         <li>Under 13: ads treated as child-directed, not personalized, no tracking request.</li>
         <li>13 to 17: ads not personalized, no tracking request.</li>
         <li>18 and over: Apple's tracking request is shown once. If you allow it, Google may use the advertising identifier (IDFA) to personalize ads. If not, ads are not personalized. Change it in iOS Settings, Privacy &amp; Security, Tracking.</li>
       </ul>
+      <p>On Android no ad is personalized:</p>
+      <ul>
+        <li>Under 13, or no year given: ads treated as child-directed, without the advertising ID.</li>
+        <li>13 and over: Google receives the advertising ID (AAID) and uses it to limit how often an ad repeats and to prevent fraud, not to personalize. You can reset or delete it in the Android settings.</li>
+      </ul>
       <p>Where the law requires it (such as the EEA and the UK), a consent form is shown first, and Privacy options in the settings reopens it. The No ads purchase removes ads, the form and the tracking request.</p>
     </section>
     <section><h2>No ads purchase</h2>
-      <p>Payment is handled by Apple. We never see payment details. If sharing is on, the purchase is sent to GameAnalytics as described above. See <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a>.</p>
+      <p>Payment is handled by Apple on iPhone and iPad and by Google Play on Android. We never see card or payment details. If sharing is on, the purchase is sent to GameAnalytics as described above. See the privacy policies of <a href="https://www.apple.com/legal/privacy/">Apple</a> and <a href="https://policies.google.com/privacy">Google</a>.</p>
+      <p>On Android, the store system from Unity (Unity IAP) also sends each purchase to Unity: product, price, purchase token, device model, language and Unity's install identifiers, without the advertising ID. This happens even with sharing off and can't be turned off. See <a href="https://unity.com/legal/privacy-policy">Unity's privacy policy</a>.</p>
     </section>
     <section><h2>Children</h2>
-      <p>Players under 13 get child-directed ads. A child who taps Accept and play also sends usage data. Parents and guardians can ask for deletion at the email below.</p>
+      <p>Players under 13 get child-directed ads. On Android, so does anyone who gives no year, and the advertising ID is not sent for them. A child who taps Accept and play also sends usage data and crash reports. Parents and guardians can ask for deletion at the email below.</p>
+    </section>
+    <section><h2>Selling and security</h2>
+      <p>We do not sell your data. Everything the game sends goes encrypted over HTTPS.</p>
     </section>
     <section><h2>Your rights and support emails</h2>
-      <p>To ask for access, correction or deletion, or to ask anything about your data, write to <a href={`mailto:${site.email}`}>{site.email}</a>. Requests are assessed under the applicable law. Finding usage data may need the SDK identifier. Deleting data already sent to GameAnalytics, Sentry or Google depends on the tools those services offer.</p>
+      <p>To ask for access, correction or deletion, or to ask anything about your data, write to <a href={`mailto:${site.email}`}>{site.email}</a>. Requests are assessed under the applicable law. Finding usage data may need the SDK identifier. Deleting data already sent to GameAnalytics, Sentry, Google or Unity depends on the tools those services offer.</p>
       <p>When you email us, we use your address and message only to answer you, on the basis of our legitimate interest in giving support. Email goes through Gmail (Google). Messages are deleted after the request is closed, unless the law requires keeping them.</p>
     </section>
     <section><h2>Changes</h2><p>Changes will be posted on this page, with the date above, before they take effect.</p></section>
