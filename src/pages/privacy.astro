@@ -12,11 +12,11 @@ const updated = new Date(`${site.updated}T00:00:00Z`).toLocaleDateString('en-US'
       <p>{site.responsible}. Contact: <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
     </section>
     <section><h2>Data on your device</h2>
-      <p>The game keeps your preferences, progress, purchase state and first-opening answers in local storage. There is no account. Deleting the app removes this data.</p>
+      <p>The game keeps your preferences, progress and first-opening answers in local storage. There is no account. Deleting the app removes this data.</p>
     </section>
     <section><h2>Age and usage data</h2>
       <p>On the first opening the game asks for your year of birth and whether you accept sharing usage data. The year only picks an age group (under 13, 13 to 15, 16 to 17, 18 and over). Only the group is kept, never the year. The same screen is shown to every age. On Android it starts with no year selected, and if no year is given the game treats the player as under 13.</p>
-      <p>If you accept, the game sends usage data to GameAnalytics: match start, end and quit, placement, times swallowed, missions unlocked, ad and offer events, the No ads purchase (product, price, currency) and the age group. The SDK also sends session data, error reports, device model, system and game version, and identifiers it creates. GameAnalytics receives your IP address and may use it to estimate your country. The game does not let it read the advertising identifier. On Android it also sends the App Set ID, never the advertising ID or the Android ID. If you choose Not now, the SDK is never started.</p>
+      <p>If you accept, the game sends usage data to GameAnalytics: match start, end and quit, placement, times swallowed, missions unlocked, ad events and the age group. The SDK also sends session data, error reports, device model, system and game version, and identifiers it creates. GameAnalytics receives your IP address and may use it to estimate your country. The game does not let it read the advertising identifier. On Android it also sends the App Set ID, never the advertising ID or the Android ID. If you choose Not now, the SDK is never started.</p>
       <p>With the same consent, the game sends crash and error reports to Sentry, to fix bugs: where the game crashed or failed, the game's latest log messages, and data such as device model, system and game version, memory, language, time zone and an identifier the SDK creates. Sentry receives your IP address with the connection but does not store it. The advertising identifier is not sent. If you choose Not now, the SDK is never started.</p>
       <p>You can turn this off at any time: gear in the menu, General, Share usage data. This turns off both. Consent is the basis for sending. Data already sent is not deleted by turning it off. See the <a href="https://gameanalytics.com/privacy">GameAnalytics privacy policy</a> and <a href="https://sentry.io/privacy/">Sentry's</a>.</p>
     </section>
@@ -33,11 +33,7 @@ const updated = new Date(`${site.updated}T00:00:00Z`).toLocaleDateString('en-US'
         <li>Under 13, or no year given: ads treated as child-directed, without the advertising ID.</li>
         <li>13 and over: Google receives the advertising ID (AAID) and uses it to limit how often the same ad repeats and to measure ads in aggregate, not to personalize. You can reset or delete it in the Android settings.</li>
       </ul>
-      <p>Where the law requires it (such as the EEA and the UK), a consent form is shown first, and Privacy options in the settings reopens it. The No ads purchase removes ads, the form and the tracking request.</p>
-    </section>
-    <section><h2>No ads purchase</h2>
-      <p>Payment is handled by Apple on iPhone and iPad and by Google Play on Android. We never see card or payment details. If sharing is on, the purchase is sent to GameAnalytics as described above. See the privacy policies of <a href="https://www.apple.com/legal/privacy/">Apple</a> and <a href="https://policies.google.com/privacy">Google</a>.</p>
-      <p>On Android, the store system from Unity (Unity IAP) also sends each purchase to Unity: product, price, purchase token, device model, system version, language, disk space and Unity's install identifiers, without the advertising ID. This happens even with sharing off and can't be turned off. See <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy">Unity's privacy policy</a>.</p>
+      <p>Where the law requires it (such as the EEA and the UK), a consent form is shown first, and Privacy options in the settings reopens it.</p>
     </section>
     <section><h2>Children</h2>
       <p>Players under 13 get child-directed ads. On Android, so does anyone who gives no year, and the advertising ID is not sent for them. A child who taps Accept and play also sends usage data and crash reports. Parents and guardians can ask for deletion at the email below.</p>
@@ -46,7 +42,7 @@ const updated = new Date(`${site.updated}T00:00:00Z`).toLocaleDateString('en-US'
       <p>We do not sell your data. Everything the game sends goes encrypted over HTTPS.</p>
     </section>
     <section><h2>Your rights and support emails</h2>
-      <p>To ask for access, correction or deletion, or to ask anything about your data, write to <a href={`mailto:${site.email}`}>{site.email}</a>. Requests are assessed under the applicable law. Finding usage data may need the SDK identifier. Deleting data already sent to GameAnalytics, Sentry, Google or Unity depends on the tools those services offer.</p>
+      <p>To ask for access, correction or deletion, or to ask anything about your data, write to <a href={`mailto:${site.email}`}>{site.email}</a>. Requests are assessed under the applicable law. Finding usage data may need the SDK identifier. Deleting data already sent to GameAnalytics, Sentry or Google depends on the tools those services offer.</p>
       <p>When you email us, we use your address and message only to answer you, on the basis of our legitimate interest in giving support. Email goes through Gmail (Google). Messages are deleted after the request is closed, unless the law requires keeping them.</p>
     </section>
     <section><h2>Changes</h2><p>Changes will be posted on this page, with the date above, before they take effect.</p></section>
