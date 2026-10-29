@@ -1,17 +1,17 @@
 # Voidy
 
-Site de início, suporte e privacidade. Astro gera HTML e CSS estáticos. Não há JavaScript no navegador, fontes externas, analytics ou backend.
+Home, support and privacy pages for Voidy. Astro generates static HTML and CSS. There is no JavaScript in the browser, no external fonts, no analytics and no backend.
 
-## Rodar
+## Run
 
-Node 22.12 ou superior.
+Node 22.12 or later.
 
 ```sh
 npm ci
 npm run dev
 ```
 
-Abra `http://localhost:4321/`.
+Open `http://localhost:4321/`.
 
 ```sh
 npm run check
@@ -20,50 +20,50 @@ npm run verify
 npm run preview
 ```
 
-`build:preview` serve somente para revisão local. `build` exige responsável, contato, autorização de publicação e revisão da política em `site.config.json`. Não publique uma prévia.
+`build:preview` is for local review only. `build` requires an owner, a contact, publication approval and a policy review in `site.config.json`. Do not publish a preview build.
 
-## Conteúdo e política
+## Content and policy
 
-`src/pages/privacy.astro` (inglês, o padrão) e `src/pages/pt/privacy.astro` (português) são a fonte da política pública, e o suporte e o início seguem o mesmo par. O texto vem do código e dos SDKs do jogo, no iPhone, iPad e Android: GameAnalytics e Sentry só com o aceite da primeira abertura, AdMob com o pedido de rastreamento da Apple para adultos no iOS e sem personalização no Android, idade da primeira abertura, compra Sem anúncios e, no Android, Unity IAP. A política precisa bater com a Segurança dos dados do Google Play. Quando o jogo mudar o que coleta ou mostra, revise os dois idiomas no mesmo PR e mude a data em `site.config.json`.
+`src/pages/privacy.astro` (English, the default) and `src/pages/pt/privacy.astro` (Portuguese) are the source of the public policy, and the support and home pages follow the same pair. The text comes from the game's code and SDKs on iPhone, iPad and Android: GameAnalytics and Sentry only after consent on first launch, AdMob with Apple's tracking prompt for adults on iOS and without personalization on Android, age on first launch, the No ads purchase and, on Android, Unity IAP. The policy has to match the Google Play Data safety form. When the game changes what it collects or shows, update both languages in the same PR and change the date in `site.config.json`.
 
-Antes da publicação, Eduardo revisa nome, contato, texto e operação do suporte, inclusive fundamento e descarte de mensagens.
+Before publishing, Eduardo reviews the name, contact, text and how support runs, including the legal basis and deletion of messages.
 
-`public/app-ads.txt` leva a linha do AdMob. O AdMob procura o arquivo um nível de subdomínio acima do site do desenvolvedor, então para `voidy.kegler.dev` ele lê `kegler.dev/app-ads.txt`: o arquivo da raiz mora no site pessoal e precisa da mesma linha. [Doc do Google](https://support.google.com/admob/answer/9363762).
+`public/app-ads.txt` holds the AdMob line. AdMob looks for the file one subdomain level above the developer site, so for `voidy.kegler.dev` it reads `kegler.dev/app-ads.txt`: the root file lives on the personal site and needs the same line. [Google docs](https://support.google.com/admob/answer/9363762).
 
-Configuração operacional remota não faz parte deste site. Foi retirada da integração do app em 01/10/2026. Links de suporte e privacidade não autorizam coleta.
+Remote operational config is not part of this site. It was removed from the app integration on 2026-10-01. Support and privacy links do not authorize any data collection.
 
-## Publicação
+## Publishing
 
-Destino: repositório público `EduKegler/blackout-site`, no domínio próprio `voidy.kegler.dev`:
+Target: the public repository `EduKegler/blackout-site`, on the custom domain `voidy.kegler.dev`:
 
 * `https://voidy.kegler.dev/`
 * `https://voidy.kegler.dev/support/`
 * `https://voidy.kegler.dev/privacy/`
-* as mesmas três em português, sob `/pt/`
+* the same three in Portuguese, under `/pt/`
 * `https://voidy.kegler.dev/app-ads.txt`
 
-Eduardo aprovou a política e a publicação em 01/10/2026. O workflow `.github/workflows/pages.yml` roda somente por pedido manual, depois do merge na main. Settings → Pages → Source usa GitHub Actions. Ele só constrói e publica o site; não liga CI ou review do jogo.
+Eduardo approved the policy and publication on 2026-10-01. The `.github/workflows/pages.yml` workflow only runs on manual dispatch, after merging to main. Settings → Pages → Source uses GitHub Actions. It only builds and publishes the site; it does not run the game's CI or review.
 
-Os aceites, o domínio e o contato estão registrados em `site.config.json`. O site fica na raiz do domínio, sem prefixo de repositório.
+Approvals, domain and contact are recorded in `site.config.json`. The site sits at the domain root, with no repository prefix.
 
-O domínio vem de Settings → Pages → Custom domain, não de arquivo `CNAME`: com publicação por GitHub Actions o arquivo é ignorado. O DNS do `kegler.dev` fica na Vercel, com `CNAME voidy -> edukegler.github.io`. Com o domínio configurado, o endereço antigo em `edukegler.github.io/blackout-site/` redireciona para ele.
+The domain comes from Settings → Pages → Custom domain, not from a `CNAME` file: with GitHub Actions publishing, that file is ignored. DNS for `kegler.dev` is on Vercel, with `CNAME voidy -> edukegler.github.io`. With the domain set, the old address at `edukegler.github.io/blackout-site/` redirects to it.
 
-Depois do deploy, conferir HTTPS e acesso sem login nas três URLs, links, contato e conteúdo. Registrar os endereços na BLACK-144 e entregar à distribuição e integração do app. Em App Store Connect, suporte fica em Support URL e política em Privacy Policy URL. A inclusão no app e no pacote de distribuição pertence às tasks desses componentes.
+After deploying, check HTTPS and logged-out access on the three URLs, plus links, contact and content. Record the URLs in BLACK-144 and hand them to the app's distribution and integration. In App Store Connect, support goes in Support URL and the policy in Privacy Policy URL. Adding them to the app and the distribution package belongs to those components' tasks.
 
-## Atualizar e reverter
+## Update and revert
 
-Alterar o conteúdo por PR, rodar as verificações locais, mergear e executar o workflow manual. Alterar a data em `site.config.json` quando o texto mudar.
+Change content through a PR, run the local checks, merge and run the manual workflow. Change the date in `site.config.json` when the text changes.
 
-Para reverter, criar um PR com `git revert <commit>`, validar, mergear e publicar novamente. Não reescrever o histórico. Reverter conteúdo não substitui revisar se a política ainda corresponde ao app distribuído.
+To revert, open a PR with `git revert <commit>`, validate, merge and publish again. Do not rewrite history. Reverting content does not replace checking that the policy still matches the shipped app.
 
-## Indexação
+## Indexing
 
-Todas as páginas, inclusive a 404, recebem `noindex`, `nofollow`, `nosnippet`, `noimageindex` e limites zero de prévia. Também há instruções explícitas para Google e Bing e pedido de não arquivar onde suportado. Isso independe dos aceites de publicação. Não há sitemap, feed, dados estruturados ou divulgação em mecanismos de busca. Links externos não enviam o endereço da página como referrer.
+Every page, including the 404, gets `noindex`, `nofollow`, `nosnippet`, `noimageindex` and zero preview limits. There are also explicit rules for Google and Bing, and a no-archive request where supported. This does not depend on the publication approvals. There is no sitemap, feed, structured data or search engine submission. External links do not send the page address as referrer.
 
-Essas regras pedem exclusão aos robôs que as respeitam. O site e seu código são públicos; não há garantia de acesso apenas por link, bloqueio de robôs hostis ou proteção por senha. GitHub Pages não oferece configuração de headers HTTP personalizados para acrescentar `X-Robots-Tag` neste projeto.
+These rules ask robots that honor them to stay out. The site and its code are public; there is no link-only access guarantee, no blocking of hostile robots and no password protection. GitHub Pages does not offer custom HTTP headers to add `X-Robots-Tag` for this project.
 
-Não bloquear buscadores com `Disallow`: eles precisam ler o HTML para reconhecer `noindex`, ou o endereço ainda pode aparecer em resultados. Por isso o site não publica `robots.txt`. [Google: noindex](https://developers.google.com/search/docs/crawling-indexing/block-indexing) e [localização do robots.txt](https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec), conferidos em 01/10/2026.
+Do not block search engines with `Disallow`: they need to read the HTML to see `noindex`, or the address can still show up in results. That is why the site does not publish a `robots.txt`. [Google: noindex](https://developers.google.com/search/docs/crawling-indexing/block-indexing) and [robots.txt location](https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec), checked on 2026-10-01.
 
-## Referências
+## References
 
-Conferidas em 01/10/2026: [Astro no Pages](https://docs.astro.build/en/guides/deploy/github/), [disponibilidade do Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages) e [privacidade do GitHub](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement).
+Checked on 2026-10-01: [Astro on Pages](https://docs.astro.build/en/guides/deploy/github/), [Pages availability](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages) and [GitHub privacy](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement).
